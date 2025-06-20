@@ -105,89 +105,41 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## How to Test the API
+## Deployed URLs
 
-You can test your API in several ways:
-
-### 1. Using curl (from the terminal)
-- See the [API Test Cases (with curl)](#api-test-cases-with-curl) section below for ready-to-use commands for all endpoints (GET, POST, PUT, DELETE).
-- Example:
-  ```sh
-  curl http://localhost:5001/api/tasks
-  ```
-
-### 2. Using Postman or Insomnia
-- Import your endpoints and test GET, POST, PUT, DELETE requests visually.
-- Set the request body as JSON for POST/PUT.
-- Inspect responses and errors easily.
-
-### 3. Using the React Frontend
-- Start the frontend (`npm start` in the `frontend` folder).
-- Use the web UI to create, read, update, and delete tasks.
-- All actions interact with your API in real time.
-
-### 4. Using a Browser
-- Open [http://localhost:5001/api/tasks](http://localhost:5001/api/tasks) to view all tasks (GET only).
+- **Backend API:** [https://keploytaskmanageapi.onrender.com/api/tasks](https://keploytaskmanageapi.onrender.com/api/tasks)
+- **Frontend:** [https://keploy-task-manage-api.vercel.app](https://keploy-task-manage-api.vercel.app)
 
 ---
 
-## API Test Cases (with curl)
+## How to Test the Deployed API
+
+You can test the deployed API using these curl commands:
 
 ### 1. Get all tasks
-**Request:**
 ```sh
-curl http://localhost:5001/api/tasks
-```
-**Expected Response:**
-```json
-[
-  { "id": 1, "title": "Sample", "description": "Test", "completed": 0 }
-]
+curl https://keploytaskmanageapi.onrender.com/api/tasks
 ```
 
 ### 2. Create a new task
-**Request:**
 ```sh
-curl -X POST -H "Content-Type: application/json" -d '{"title":"Test Task","description":"Try this"}' http://localhost:5001/api/tasks
-```
-**Expected Response:**
-```json
-{ "id": 2, "title": "Test Task", "description": "Try this", "completed": 0 }
+curl -X POST -H "Content-Type: application/json" -d '{"title":"Test Task","description":"Try this"}' https://keploytaskmanageapi.onrender.com/api/tasks
 ```
 
-### 3. Update a task (mark as completed)
-**Request:**
+### 3. Update a task (replace <id> with the actual _id from GET)
 ```sh
-curl -X PUT -H "Content-Type: application/json" -d '{"title":"Test Task","description":"Try this","completed":1}' http://localhost:5001/api/tasks/2
-```
-**Expected Response:**
-```json
-{ "updated": 1 }
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"Updated","description":"Updated desc","completed":true}' https://keploytaskmanageapi.onrender.com/api/tasks/<id>
 ```
 
-### 4. Delete a task
-**Request:**
+### 4. Delete a task (replace <id> with the actual _id from GET)
 ```sh
-curl -X DELETE http://localhost:5001/api/tasks/2
-```
-**Expected Response:**
-```json
-{ "deleted": 1 }
-```
-
-### 5. Error case: Get a non-existent task (should return empty or error)
-**Request:**
-```sh
-curl http://localhost:5001/api/tasks/9999
-```
-**Expected Response:**
-```json
-{}
+curl -X DELETE https://keploytaskmanageapi.onrender.com/api/tasks/<id>
 ```
 
 ---
 
-You can copy-paste these commands into your terminal to test your API endpoints. Modify the IDs as needed for your data.
+You can also interact with the API using the deployed frontend:
+[https://keploy-task-manage-api.vercel.app](https://keploy-task-manage-api.vercel.app)
 
 ---
 
