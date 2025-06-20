@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 // const API_URL = "http://localhost:5001/api/tasks";
-const API_URL = "const API_URL = "https://keploytaskmanageapi.onrender.com/api/tasks";";
+const API_URL = "https://keploytaskmanageapi.onrender.com/api/tasks";
 
 const mainFont = {
   fontFamily: 'Inter, Segoe UI, Arial, sans-serif'
